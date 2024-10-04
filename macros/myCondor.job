@@ -1,0 +1,13 @@
+Universe           = vanilla
+concurrency_limits = CONCURRENCY_LIMIT_DEFAULT:100
+initialDir         = /sphenix/user/mitrankova/analysis/K_short_ana418/macros 
+Executable         = $(initialDir)/runKShortReco.sh
+  Output  	= /sphenix/user/mitrankova/analysis/K_short_ana418/macros/log/K_short_$(process).out
+  Error         = /sphenix/user/mitrankova/analysis/K_short_ana418/macros/log/K_short_$(process).err
+  Log  	        = /sphenix/user/mitrankova/analysis/K_short_ana418/macros/log/K_short_$(process).log
+PeriodicHold       = (NumJobStarts>=1 && JobStatus == 1)
+request_memory     = 6GB
+Priority           = 20
+job_lease_duration = 3600
+Arguments          = $(inputFile)
+Queue inputFile from list.runs 
